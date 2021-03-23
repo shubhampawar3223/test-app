@@ -4,10 +4,11 @@ const mongodb = require("mongodb");
 require('dotenv').config()
 const mongoClient = mongodb.MongoClient;
 const objectId = mongodb.ObjectID;
-//const dbUrl = "mongodb://127.0.0.1:27017";
 const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017";
-//zTKNq2DKPQg11HOL
+const port = process.env.PORT || 5000;
+
 app.use(express.json());
+
 
 app.get("/",async (req,res)=>{
 //res.send("Connected");
@@ -36,4 +37,4 @@ app.post('/create',async(req,res)=>{
     console.log(e);
    }
 })
-app.listen(5010,()=> console.log("Server is listening on port 4005"));
+app.listen(port,()=> console.log("Server is listening on port port"));
